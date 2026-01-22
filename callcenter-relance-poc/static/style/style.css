@@ -1,0 +1,92 @@
+/* ========== RESET & BASE ========== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 24px;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f4f6f9;
+    color: #1f2937;
+}
+
+/* ========== TOP BAR ========== */
+.topbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.topbar img {
+    height: 44px;
+}
+
+/* ========== MAIN TABS (Production / Vues) ========== */
+.main-tabs {
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    display: flex;
+    gap: 12px;
+}
+
+.main-tab {
+    padding: 10px 18px;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.main-tab.active {
+    background: #e6f6f0;
+    border-color: #2fb380;
+    color: #065f46;
+}
+
+/* ========== COLUMNS LAYOUT ========== */
+.columns {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* ========== CARD ========== */
+.card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+}
+
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 18px;
+}
+
+/* ========== DISABLED COLUMN ========== */
+.card.disabled {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+/* ========== VIEWS PLACEHOLDER ========== */
+.hidden {
+    display: none;
+}
+
+.views-placeholder {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 18px;
+    text-align: center;
+    color: #6b7280;
+    font-weight: 600;
+}

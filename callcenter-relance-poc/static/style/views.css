@@ -1,0 +1,193 @@
+/* ===== VUES : TABS ===== */
+.tabs { display:flex; gap:8px; margin-bottom:20px; }
+.tab {
+    padding:8px 14px;
+    border-radius:12px;
+    background:#f3f4f6;
+    font-weight:600;
+    cursor:pointer;
+}
+.tab.active {
+    background:#e6f6f0;
+    border:1px solid #2fb380;
+    color:#065f46;
+}
+
+/* ===== DASHBOARD (hero) ===== */
+.kpis-hero {
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:20px;
+}
+
+.kpi {
+    background:#fff;
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 12px 30px rgba(0,0,0,.06);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.kpi-accent { border-left:6px solid #2fb380; }
+
+.kpi-icon { font-size:28px; margin-bottom:6px; }
+.kpi-title { font-size:14px; font-weight:700; color:#6b7280; }
+.kpi-value { font-size:42px; font-weight:900; color:#111827; margin-top:6px; }
+
+/* ===== FILTRES (AJOUT) ===== */
+.filters {
+    display:flex;
+    gap:10px;
+    margin-bottom:12px;
+}
+
+.filters select {
+    height:36px;
+    border-radius:10px;
+    border:1px solid #e5e7eb;
+    padding:0 10px;
+    font-size:13px;
+}
+
+/* ===== TABLES ===== */
+.table {
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
+}
+.table th {
+    text-align:left;
+    font-size:12px;
+    text-transform:uppercase;
+    background:#f9fafb;
+    padding:12px;
+    color:#6b7280;
+}
+.table td { padding:12px; border-top:1px solid #f1f5f9; }
+.table tr:hover { background:#f9fafb; }
+
+/* ===== A APPELER MAINTENANT ===== */
+.row-action { cursor:pointer; }
+.row-action:hover { background:#f9fafb; }
+.delay { font-size:12px; color:#ef4444; }
+
+.tag {
+    display:inline-block;
+    padding:2px 8px;
+    border-radius:10px;
+    font-size:12px;
+    font-weight:700;
+}
+.tag-p1 { background:#fee2e2; color:#991b1b; }
+.single-nav {
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+/* séparateur */
+.nav-sep {
+    color:#9ca3af;
+    font-weight:700;
+    margin:0 6px;
+}
+
+/* zone DATA plus discrète */
+.main-tab.ghost {
+    background:#f9fafb;
+    color:#6b7280;
+    border:1px dashed #e5e7eb;
+}
+
+/* hover clair */
+.main-tab.ghost:hover {
+    background:#f3f4f6;
+    color:#374151;
+}
+/* ===== FILTER PILLS (AIRBNB STYLE) ===== */
+.filters select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    height: 36px;
+    padding: 0 36px 0 16px;          /* respiration gauche / droite */
+    border-radius: 999px;            /* pill */
+    border: 1px solid #e5e7eb;
+    background-color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 600;
+    color: #111827;
+
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239CA3AF' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 10px 6px;
+}
+
+/* hover clean */
+.filters select:hover {
+    border-color: #d1d5db;
+}
+
+/* focus Airbnb-like */
+.filters select:focus {
+    outline: none;
+    border-color: #111827;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+/* ===== COUNTDOWN – CALL CENTER UX ===== */
+
+.countdown {
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 1.1;
+}
+
+.countdown-ok {
+    color: #16a34a; /* vert */
+}
+
+.countdown-now {
+    color: #2563eb; /* bleu */
+}
+
+.countdown-late {
+    color: #dc2626; /* rouge */
+}
+
+.countdown-date {
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b7280;
+    margin-top: 2px;
+}
+/* ===== STATUS BADGES (SAFE) ===== */
+.status {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+.status.success { background:#dcfce7; color:#166534; }
+.status.warning { background:#fef3c7; color:#92400e; }
+.status.danger  { background:#fee2e2; color:#991b1b; }
+.status.info    { background:#e0f2fe; color:#075985; }
+.status.neutral { background:#f3f4f6; color:#374151; }
+
+/* ===== RELANCE UX ===== */
+.relance-level { font-weight:700; }
+.relance-time  { font-size:12px; color:#6b7280; }
+
+/* ===== RETARD VISUEL ===== */
+tr.is-late { background:#fff5f5; }
+tr.is-late .countdown { color:#dc2626; }

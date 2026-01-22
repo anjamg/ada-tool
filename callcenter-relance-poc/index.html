@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdaProd – Production Appels</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/style/base.css">
+    <link rel="stylesheet" href="/static/style/form.css">
+    <link rel="stylesheet" href="/static/style/aircall.css">
+    <link rel="stylesheet" href="/static/style/modal.css">
+    <link rel="stylesheet" href="/static/style/views.css">
+    <link rel="stylesheet" href="/static/style/pagination.css">
+</head>
+
+<body>
+
+<header class="topbar">
+    <img src="/static/assets/logo-adaprod.png" alt="AdaProd">
+</header>
+
+<main class="page">
+
+    <!-- NAVIGATION UNIQUE -->
+    <nav class="main-tabs single-nav">
+        <!-- ZONE PROD -->
+        <button class="main-tab active" data-target="prod">New</button>
+        <button class="main-tab" data-target="now">Relance</button>
+        <button class="main-tab" data-target="dashboard">Dashboard</button>
+
+        <span class="nav-sep">|</span>
+
+        <!-- ZONE DATA -->
+        <button class="main-tab ghost" data-target="leads">Leads</button>
+        <button class="main-tab ghost" data-target="calls">Appels</button>
+    </nav>
+
+    <!-- ===== NEW (ex Production) ===== -->
+    <section id="section-prod">
+        <div class="columns">
+            <section class="card" id="col-lead">
+                <h2>Lead</h2>
+
+                <label>Projet</label>
+                <select id="lead_projet">
+                    <option>Colisée</option>
+                    <option>Nohée</option>
+                </select>
+
+                <label>Type de lead</label>
+                <select id="lead_type">
+                    <option>ODP</option>
+                    <option>Web</option>
+                </select>
+
+                <label>Clé du lead (URL Creatio)</label>
+                <input id="lead_key" placeholder="https://…">
+
+                <label>Date création lead</label>
+                <input id="lead_created_at" placeholder="DD/MM/YYYY HH:mm">
+
+                <button class="primary" id="btnLeadValidate">Valider</button>
+            </section>
+
+            <section class="card disabled" id="col-call">
+                <h2>Appel</h2>
+
+                <label>Conseiller</label>
+                <select id="call_agent">
+                    <optgroup label="Colisée">
+                        <option>Hyacinthe</option>
+                        <option>Yowan</option>
+                        <option>Lanto Faniry</option>
+                        <option>Patrick</option>
+                        <option>Sariaka</option>
+                        <option>Natacha</option>
+                        <option>Niaina</option>
+                        <option>Julio</option>
+                        <option>Virginie</option>
+                        <option>Luisa</option>
+                        <option>Tsiry</option>
+                        <option>Angelo</option>
+                        <option>Mira</option>
+                        <option>Mathieu</option>
+                        <option>Nardi</option>
+                    </optgroup>
+
+                    <optgroup label="Nohée">
+                        <option>Joy</option>
+                        <option>Maggy</option>
+                        <option>Nandrianina</option>
+                        <option>Boris</option>
+                        <option>Miora</option>
+                        <option>Aro</option>
+                        <option>Fazel</option>
+                        <option>Marielle</option>
+                        <option>Michael</option>
+                    </optgroup>
+                </select>
+
+                <label>Type d’appel</label>
+                <select id="call_type">
+                    <option value="1">Premier appel</option>
+                    <option value="2">Relance 1</option>
+                    <option value="3">Relance 2</option>
+                    <option value="4">Relance 3</option>
+                </select>
+
+                <label>Priorité de l’appel</label>
+                <select id="call_priority">
+                    <option value="NORMAL">Normal</option>
+                    <option value="P1">P1</option>
+                </select>
+
+                <label>Appeler</label>
+                <button class="aircall-btn" id="btnAircall">
+                    <img src="/static/assets/aircall-logo.png" alt="">
+                </button>
+
+                <div class="phone-display" id="call_phone">—</div>
+
+                <label>Résultat de l’appel</label>
+                <select id="call_result">
+                    <option value="">— Choisir —</option>
+                    <optgroup label="Statuts définitifs">
+                        <option>Qualifié</option>
+                        <option>Annulé</option>
+                        <option>Pas intéressé</option>
+                    </optgroup>
+                    <optgroup label="À traiter">
+                        <option>Pas de réponse</option>
+                        <option>Injoignable</option>
+                        <option>À rappeler</option>
+                    </optgroup>
+                </select>
+
+                <button class="primary" id="btnCallValidate">Valider</button>
+            </section>
+        </div>
+    </section>
+
+    <!-- ===== RELANCE ===== -->
+    <section id="view-now" class="view hidden">
+        <div class="filters">
+            <select id="f_project">
+                <option value="">Colisée / Nohée</option>
+                <option>Colisée</option>
+                <option>Nohée</option>
+            </select>
+
+            <select id="f_agent">
+                <option value="">Conseiller</option>
+            </select>
+
+            <select id="f_prio">
+                <option value="">Priorité</option>
+                <option value="NORMAL">Normal</option>
+                <option value="P1">P1</option>
+            </select>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>À partir de</th>
+                <th>Projet</th>
+                <th>Relance</th>
+                <th>Priorité</th>
+            </tr>
+            </thead>
+            <tbody id="nowBody"></tbody>
+        </table>
+        <div class="pagination" id="pagination-now"></div>
+    </section>
+
+    <!-- ===== DASHBOARD ===== -->
+    <section id="view-dashboard" class="view hidden"></section>
+
+    <!-- ===== LEADS ===== -->
+    <section id="view-leads" class="view hidden">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Lead</th>
+                <th>Projet</th>
+                <th>Type</th>
+                <th>Tél</th>
+                <th>Dernier résultat</th>
+                <th>Appels</th>
+                <th>Réactivité</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody id="leadsBody"></tbody>
+        </table>
+        <div class="pagination" id="pagination-leads"></div>
+    </section>
+
+    <!-- ===== APPELS ===== -->
+    <section id="view-calls" class="view hidden">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Lead</th>
+                <th>Projet</th>
+                <th>Type</th>
+                <th>Tél</th>
+                <th>Conseiller</th>
+                <th>Niveau</th>
+                <th>Résultat</th>
+                <th>Prio</th>
+                <th>Fait le</th>
+            </tr>
+            </thead>
+            <tbody id="callsBody"></tbody>
+        </table>
+        <div class="pagination" id="pagination-calls"></div>
+    </section>
+
+</main>
+
+<!-- MODAL RELANCE -->
+<div class="modal hidden" id="relanceModal">
+    <div class="modal-content">
+        <h3>Planifier une relance</h3>
+        <label>Type de relance</label>
+        <select id="relance_type"></select>
+        <label>Date de relance</label>
+        <input type="datetime-local" id="relance_date">
+        <label>Priorité de la relance</label>
+        <select id="relance_priority">
+            <option value="NORMAL">Normal</option>
+            <option value="P1">P1</option>
+        </select>
+        <div class="modal-actions">
+            <button class="ghost" id="btnRelanceCancel">Annuler</button>
+            <button class="primary" id="btnRelanceSave">Enregistrer</button>
+        </div>
+    </div>
+</div>
+
+<script src="/static/js/state.js"></script>
+<script src="/static/js/error-handler.js"></script>
+<script src="/static/js/debounce.js"></script>
+<script src="/static/js/sanitize.js"></script>
+<script src="/static/js/api.js"></script>
+<script src="/static/js/pagination.js"></script>
+<script src="/static/js/aircall.js"></script>
+<script src="/static/js/relance.js"></script>
+<script src="/static/js/call-flow.js"></script>
+<script src="/static/js/relance-modal.js"></script>
+<script src="/static/js/views.js"></script>
+
+<div id="toast" class="toast hidden">✅ Appel enregistré</div>
+
+</body>
+</html>

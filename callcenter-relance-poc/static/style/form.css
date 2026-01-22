@@ -1,0 +1,165 @@
+/* ===============================
+   FORM – GLOBAL
+================================ */
+
+label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 4px;
+}
+
+input,
+select,
+button {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 14px;
+}
+
+/* ===============================
+   INPUTS / SELECTS
+================================ */
+
+input,
+select {
+    height: 44px;
+    padding: 0 12px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    color: #111827;
+}
+
+input::placeholder {
+    color: #9ca3af;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #2fb380;
+    box-shadow: 0 0 0 2px rgba(47,179,128,0.15);
+}
+
+/* ===============================
+   FORM LAYOUT (ANTI “TOUT COLLÉ”)
+================================ */
+
+#col-lead,
+#col-call {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+
+button {
+    height: 44px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+button.primary {
+    background: #2fb380;
+    color: #ffffff;
+}
+
+button.primary:hover {
+    background: #27a874;
+}
+
+button.ghost {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+button.ghost:hover {
+    background: #e5e7eb;
+}
+
+/* ===============================
+   PHONE DISPLAY
+================================ */
+
+.phone-display {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    border-radius: 12px;
+    background: #f9fafb;
+    border: 1px dashed #d1d5db;
+    color: #6b7280;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ===============================
+   DISABLED COLUMN
+================================ */
+
+.card.disabled input,
+.card.disabled select,
+.card.disabled button {
+    background: #f9fafb;
+    cursor: not-allowed;
+}
+input, select {
+    background: #fff;
+    border: 1px solid #d1d5db;
+}
+label { color:#111827; }
+input:focus, select:focus {
+    border-color:#111827;
+    box-shadow:0 1px 2px rgba(0,0,0,.08);
+}
+optgroup { font-weight:700; color:#374151; }
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 38px;              /* espace pour la flèche */
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 12px 8px;
+}
+/* ===== FILTER PILLS – FINAL OVERRIDE ===== */
+.filters select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    height: 36px;
+    padding: 0 38px 0 16px;
+    border-radius: 999px !important;   /* pill garanti */
+    border: 1px solid #e5e7eb;
+    background-color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 600;
+    color: #111827;
+
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239CA3AF' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 10px 6px;
+}
+
+/* hover clean */
+.filters select:hover {
+    border-color: #d1d5db;
+}
+
+/* focus premium */
+.filters select:focus {
+    outline: none;
+    border-color: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34,197,94,0.25);
+}
+

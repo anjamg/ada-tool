@@ -1,0 +1,25 @@
+/* ========== AIRCALL BUTTON ========== */
+
+.aircall-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    height: 46px;
+    padding: 0 14px;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.aircall-btn img {
+    height: 18px;
+    width: auto;
+}
+
+.aircall-btn:hover {
+    background: #f9fafb;
+}
+.aircall-btn span { display:none; }
+.aircall-btn { justify-content:center; width:100%; }
